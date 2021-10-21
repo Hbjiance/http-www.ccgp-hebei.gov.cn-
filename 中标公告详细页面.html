@@ -1,0 +1,679 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0082)http://www.ccgp-hebei.gov.cn/cd/cd_wc/cggg/zhbggAAAA/202110/t20211011_1485252.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="SiteName" content="中国河北政府采购网">
+    <meta name="SiteDomain" content="www.ccgp-hebei.gov.cn">
+    <meta name="SiteIDCode" content="1300000065">
+    <meta name="ArticleTitle" content="2021年村级信息资源共享支中心电脑采购项目中标公告">
+    <meta name="PubDate" content="2021-10-11">
+    <meta name="ContentSource" content="中国河北政府采购网">
+    <title>中标公告详细页面</title>
+    <style type="text/css">
+        body {
+            margin-left: 0px;
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+            background-color: #EAF1F7;
+        }
+
+        a.blue:link {
+            color: blue;
+            font-family: "微软雅黑", "宋体";
+            font-size: 13px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a.blue:hover {
+            color: #ffe11a;
+            font-family: "微软雅黑", "宋体";
+            font-size: 13px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a.blue:visited {
+            color: #0182d6;
+            font-family: "微软雅黑", "宋体";
+            font-size: 13px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .title {
+            font-family: "微软雅黑", "宋体";
+            font-size: 14px;
+            color: #4a4a4a;
+            text-decoration: none;
+            line-height: 30px;
+            font-weight: bold;
+        }
+    </style>
+    <script type="text/javascript" src="./中标公告详细页面_files/jquery.js.下载"></script>
+    <script type="text/javascript" src="./中标公告详细页面_files/messager.js.下载"></script>
+    <script type="text/javascript" src="./中标公告详细页面_files/pinyin.js.下载"></script>
+    <script type="text/javascript" src="./中标公告详细页面_files/ajax.js.下载" charset="UTF-8"></script>
+    <link href="./中标公告详细页面_files/css.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+        //关闭窗口
+        function closeWindow() {
+            window.close();
+        }
+
+        function autoIframeHeight(iframe) {
+            if (iframe) {
+                var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+                if (iframeWin.document.body) {
+                    iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+                }
+            }
+        }
+        //去重
+        function unique(arr) {
+            if (!Array.isArray(arr)) {
+                console.log('type error!')
+                return
+            }
+            var array =[];
+            for(var i = 0; i < arr.length; i++) {
+                if( array.indexOf( arr[i])==-1 ) {//includes 检测数组是否有某个值
+                    array.push(arr[i]);
+                }
+            }
+            return array
+        }
+        function content() {
+            var content = document.getElementById("con").innerText;
+            document.getElementById("con").innerText = content.split("#detail#")[0];
+            var AnncVersion = document.getElementById("AnncVersion").innerText;
+            var temp = content.split("#detail#")[1];
+            var fujian = temp.split("#filename#")[1];
+            var packdetail = temp.split("#filename#")[0];
+            var detail = new Array();
+            var pack = new Array();
+            detail = fujian.split("@_@");
+            for (i = 0; i < detail.length; i++) {
+                var file = detail[i].split("#_#");
+                if (file != "null") {
+                    document.getElementById("fujian").innerHTML += "<a id='files' href='/BidWinAnncFiles/" + file[2] + "." + file[1] + "' class='blue' download>" + file[0] + "</a><br />";
+                    document.getElementById("fujian_2020").innerHTML += "<a id='files' href='/BidWinAnncFiles/" + file[2] + "." + file[1] + "' class='blue' download>" + file[0] + "</a><br />";
+                }
+            }
+            pack = packdetail.split("#_@_@");
+            if (AnncVersion == "V2020") {
+                document.getElementById("OLD_VERSION").innerHTML="";
+                //供应商表格信息
+                var supplierNames=pack[3].split("#_#");
+                var unipue_SupplierNames=unique(supplierNames);//供应商名称集合
+                var supplierAddrs=pack[4].split("#_#");
+                var unique_SupplierAddrs=unique(supplierAddrs);//供应商地址集合
+                var supplierCodes=pack[2].split("#_#");
+                var unique_SupplierCodes=unique(supplierCodes);//供应商组织结构代码集合
+                for(i = 0;i < unipue_SupplierNames.length;i++){
+                    var getTable = document.getElementById("SupplierInfos");
+                    var addRow = getTable.insertRow();
+                    addRow.style.backgroundColor = "white";
+                    var addC1 = addRow.insertCell(0).innerText = unipue_SupplierNames[i];
+                    var addC2 = addRow.insertCell(1).innerText = unique_SupplierAddrs[i];
+                    var addC3 = addRow.insertCell(2).innerText = unique_SupplierCodes[i];
+                }
+                //标的信息表格
+                for(i = 0;i < pack[0].split("#_#").length;i++){
+                    var getGoodsTable=document.getElementById("GoodsSupplierInfo");
+                    var getEngineeringTable=document.getElementById("EngineeringSupplierInfo");
+                    var getServiceTable=document.getElementById("ServiceSupplierInfo");
+                    //货物表格信息
+                    if(pack[0].split("#_#")[i]=="A"){
+                        var addRow=getGoodsTable.insertRow();
+                        addRow.style.backgroundColor="white";
+                        var addC1=addRow.insertCell(0).innerText=pack[3].split("#_#")[i];
+                        var addC2=addRow.insertCell(1).innerText=pack[5].split("#_#")[i];
+                        var addC3=addRow.insertCell(2).innerText=pack[15].split("#_#")[i];
+                        var addC4=addRow.insertCell(3).innerText=pack[7].split("#_#")[i];
+                        var addC5=addRow.insertCell(4).innerText=pack[8].split("#_#")[i];
+                        var addC6=addRow.insertCell(5).innerText=pack[9].split("#_#")[i];
+                        if (pack[10].split("#_#")[i] == undefined || pack[10].split("#_#")[i] == "null") {
+                            var addC7 = addRow.insertCell(6).innerText = "";
+                        }
+                        else {
+                            var addC7 = addRow.insertCell(6).innerText = pack[10].split("#_#")[i];
+                        }
+                        if (pack[23].split("#_#")[i] == undefined || pack[23].split("#_#")[i] == "null") {
+                            var addC8 = addRow.insertCell(7).innerText = "";
+                        }
+                        else {
+                            var addC8 = addRow.insertCell(7).innerText = pack[23].split("#_#")[i];
+                        }
+                        if (pack[24].split("#_#")[i] == undefined || pack[24].split("#_#")[i] == "null") {
+                            var addC9 = addRow.insertCell(8).innerText = "";
+                        }
+                        else {
+                            var addC9 = addRow.insertCell(8).innerText = pack[24].split("#_#")[i];
+                        }
+                        if (pack[11].split("#_#")[i] == undefined || pack[11].split("#_#")[i] == "null") {
+                            var addC10=addRow.insertCell(9).innerText="";
+                        }
+                        else {
+                            var addC10=addRow.insertCell(9).innerText=pack[11].split("#_#")[i];
+                        }
+                        if (pack[13].split("#_#")[i] == undefined || pack[13].split("#_#")[i] == "null") {
+                            var addC11 = addRow.insertCell(10).innerText = "";
+                        }
+                        else {
+                            var addC11 = addRow.insertCell(10).innerText = pack[13].split("#_#")[i];
+                        }
+                        if (pack[14].split("#_#")[i] == undefined || pack[14].split("#_#")[i] == "null") {
+                            var addC12 = addRow.insertCell(11).innerText = "";
+                        }
+                        else {
+                            var addC12 = addRow.insertCell(11).innerText = pack[14].split("#_#")[i];
+                        }
+                    }
+                    //工程表格信息
+                    else if(pack[0].split("#_#")[i]=="B"){
+                        var addRow=getEngineeringTable.insertRow();
+                        addRow.style.backgroundColor="white";
+                        var addC1=addRow.insertCell(0).innerText=pack[3].split("#_#")[i];
+                        var addC2=addRow.insertCell(1).innerText=pack[5].split("#_#")[i];
+                        var addC3=addRow.insertCell(2).innerText=pack[16].split("#_#")[i];
+                        var addC4=addRow.insertCell(3).innerText=pack[17].split("#_#")[i];
+                        var addC5=addRow.insertCell(4).innerText=pack[19].split("#_#")[i];
+                        var addC6=addRow.insertCell(5).innerText=pack[18].split("#_#")[i];
+                        if (pack[10].split("#_#")[i] == undefined || pack[10].split("#_#")[i] == "null") {
+                            var addC7 = addRow.insertCell(6).innerText = "";
+                        }
+                        else {
+                            var addC7 = addRow.insertCell(6).innerText = pack[10].split("#_#")[i];
+                        }
+                        if (pack[23].split("#_#")[i] == undefined || pack[23].split("#_#")[i] == "null") {
+                            var addC8 = addRow.insertCell(7).innerText = "";
+                        }
+                        else {
+                            var addC8 = addRow.insertCell(7).innerText = pack[23].split("#_#")[i];
+                        }
+                        if (pack[24].split("#_#")[i] == undefined || pack[24].split("#_#")[i] == "null") {
+                            var addC9 = addRow.insertCell(8).innerText = "";
+                        }
+                        else {
+                            var addC9 = addRow.insertCell(8).innerText = pack[24].split("#_#")[i];
+                        }
+                        if (pack[11].split("#_#")[i] == undefined || pack[11].split("#_#")[i] == "null") {
+                            var addC10=addRow.insertCell(9).innerText="";
+                        }
+                        else {
+                            var addC10=addRow.insertCell(9).innerText=pack[11].split("#_#")[i];
+                        }
+                        if (pack[13].split("#_#")[i] == undefined || pack[13].split("#_#")[i] == "null") {
+                            var addC11 = addRow.insertCell(10).innerText = "";
+                        }
+                        else {
+                            var addC11 = addRow.insertCell(10).innerText = pack[13].split("#_#")[i];
+                        }
+                        if (pack[14].split("#_#")[i] == undefined || pack[14].split("#_#")[i] == "null") {
+                            var addC12 = addRow.insertCell(11).innerText = "";
+                        }
+                        else {
+                            var addC12 = addRow.insertCell(11).innerText = pack[14].split("#_#")[i];
+                        }
+                    }
+                    //服务表格信息
+                    else if(pack[0].split("#_#")[i]=="C"){
+                        var addRow=getServiceTable.insertRow();
+                        addRow.style.backgroundColor="white";
+                        var addC1=addRow.insertCell(0).innerText=pack[3].split("#_#")[i];
+                        var addC2=addRow.insertCell(1).innerText=pack[5].split("#_#")[i];
+                        var addC3=addRow.insertCell(2).innerText=pack[21].split("#_#")[i];
+                        var addC4=addRow.insertCell(3).innerText=pack[12].split("#_#")[i];
+                        var addC5=addRow.insertCell(4).innerText=pack[22].split("#_#")[i];
+                        var addC6=addRow.insertCell(5).innerText=pack[20].split("#_#")[i];
+                        if (pack[10].split("#_#")[i] == undefined || pack[10].split("#_#")[i] == "null") {
+                            var addC7 = addRow.insertCell(6).innerText = "";
+                        }
+                        else {
+                            var addC7 = addRow.insertCell(6).innerText = pack[10].split("#_#")[i];
+                        }
+                        if (pack[23].split("#_#")[i] == undefined || pack[23].split("#_#")[i] == "null") {
+                            var addC8 = addRow.insertCell(7).innerText = "";
+                        }
+                        else {
+                            var addC8 = addRow.insertCell(7).innerText = pack[23].split("#_#")[i];
+                        }
+                        if (pack[24].split("#_#")[i] == undefined || pack[24].split("#_#")[i] == "null") {
+                            var addC9 = addRow.insertCell(8).innerText = "";
+                        }
+                        else {
+                            var addC9 = addRow.insertCell(8).innerText = pack[24].split("#_#")[i];
+                        }
+                        if (pack[11].split("#_#")[i] == undefined || pack[11].split("#_#")[i] == "null") {
+                            var addC10=addRow.insertCell(9).innerText="";
+                        }
+                        else {
+                            var addC10=addRow.insertCell(9).innerText=pack[11].split("#_#")[i];
+                        }
+                        if (pack[13].split("#_#")[i] == undefined || pack[13].split("#_#")[i] == "null") {
+                            var addC11 = addRow.insertCell(10).innerText = "";
+                        }
+                        else {
+                            var addC11 = addRow.insertCell(10).innerText = pack[13].split("#_#")[i];
+                        }
+                        if (pack[14].split("#_#")[i] == undefined || pack[14].split("#_#")[i] == "null") {
+                            var addC12 = addRow.insertCell(11).innerText = "";
+                        }
+                        else {
+                            var addC12 = addRow.insertCell(11).innerText = pack[14].split("#_#")[i];
+                        }
+                    }
+                    if(pack[0].split("#_#").indexOf("A")==-1){
+                        document.getElementById("Goods").innerHTML="";
+                    }
+                    if(pack[0].split("#_#").indexOf("B")==-1){
+                        document.getElementById("Engineering").innerHTML="";
+                    }
+                    if(pack[0].split("#_#").indexOf("C")==-1){
+                        document.getElementById("Service").innerHTML="";
+                    }
+                }
+            }
+            else {
+                document.getElementById("2020_VERSION").innerHTML = "";
+                if (pack.length < 13 && pack.length > 9) {
+                    document.getElementById("detail").innerHTML = "";
+                    for (a = 0; a < pack[0].split("#_#").length; a++) {
+                        document.getElementById("packdetail").innerHTML += pack[0].split("#_#")[a] + "包： 供应商名单 ：<span>" + pack[1].split("#_#")[a] + "</span> 中标金额： <span>" + pack[2].split("#_#")[a] + "元(人民币) </span> 中标供应商地址：<span>" + pack[3].split("#_#")[a] + "</span>";
+                        if (pack[4].split("#_#")[a] != "" && pack[4].split("#_#")[a] != undefined) {
+                            document.getElementById("packdetail").innerHTML += " 中标优惠率：<span>" + pack[4].split("#_#")[a] + "</span>";
+                        }
+                        if (pack[10].split("#_#")[a] != "" && pack[10].split("#_#")[a] != undefined) {
+                            document.getElementById("packdetail").innerHTML += " 主要标的名称：<span>" + pack[10].split("#_#")[a] + "</span>";
+                        }
+                        if (pack[9].split("#_#")[a] != "" && pack[9].split("#_#")[a] != undefined) {
+                            document.getElementById("packdetail").innerHTML += " 服务标准：<span>" + pack[9].split("#_#")[a] + "</span>";
+                        }
+                        if (pack[5].split("#_#")[a] != "" && pack[5].split("#_#")[a] != undefined) {
+                            document.getElementById("packdetail").innerHTML += " 质量标准：<span>" + pack[5].split("#_#")[a] + "</span>";
+                        }
+                        if (pack[6].split("#_#")[a] != "" && pack[6].split("#_#")[a] != undefined) {
+                            document.getElementById("packdetail").innerHTML += " 履约日期：<span>" + pack[6].split("#_#")[a] + "</span>";
+                        }
+                        if (pack[7].split("#_#")[a] != "" && pack[7].split("#_#")[a] != undefined) {
+                            document.getElementById("packdetail").innerHTML += " 单价：<span>" + pack[7].split("#_#")[a] + "</span>";
+                        }
+                        if (pack[8].split("#_#")[a] != "" && pack[8].split("#_#")[a] != undefined) {
+                            document.getElementById("packdetail").innerHTML += " 规格型号：<span>" + pack[8].split("#_#")[a] + "</span>";
+                        }
+                        document.getElementById("packdetail").innerHTML += "<br />";
+                    }
+                } else if (pack.length == 9) {
+                    document.getElementById("detail").innerHTML = "";
+                    for (a = 0; a < pack[0].split("#_#").length; a++) {
+                        document.getElementById("packdetail").innerHTML += pack[0].split("#_#")[a] + "包： 供应商名单 ：<span>" + pack[1].split("#_#")[a] + "</span> 中标金额： <span>" + pack[2].split("#_#")[a] + "元(人民币) </span> 中标供应商地址：<span>" + pack[3].split("#_#")[a] + "</span>";
+                        if (pack[4].split("#_#")[a] != "" && pack[4].split("#_#")[a] != undefined) {
+                            document.getElementById("packdetail").innerHTML += " 中标优惠率：<span>" + pack[4].split("#_#")[a] + "</span>";
+                        }
+                        if (pack[5].split("#_#")[a] != "" && pack[5].split("#_#")[a] != undefined) {
+                            document.getElementById("packdetail").innerHTML += " 质量标准：<span>" + pack[5].split("#_#")[a] + "</span>";
+                        }
+                        if (pack[6].split("#_#")[a] != "" && pack[6].split("#_#")[a] != undefined) {
+                            document.getElementById("packdetail").innerHTML += " 履约日期：<span>" + pack[6].split("#_#")[a] + "</span>";
+                        }
+                        if (pack[7].split("#_#")[a] != "" && pack[7].split("#_#")[a] != undefined) {
+                            document.getElementById("packdetail").innerHTML += " 单价：<span>" + pack[7].split("#_#")[a] + "</span>";
+                        }
+                        if (pack[8].split("#_#")[a] != "" && pack[8].split("#_#")[a] != undefined) {
+                            document.getElementById("packdetail").innerHTML += "规格型号：<span>" + pack[7].split("#_#")[a] + "</span>";
+                        }
+                        //if(pack[9].split("#_#")[a]!=""&&pack[9].split("#_#")[a]!=undefined)
+                        //{
+                        //document.getElementById("packdetail").innerHTML+="服务要求：<span>"+pack[9].split("#_#")[a]+"</span>";
+                        //}
+                        document.getElementById("packdetail").innerHTML += "</br>";
+                    }
+                } else {
+                    for (a = 0; a < pack[0].split("#_#").length; a++) {
+                        var getTable = document.getElementById("detail");
+                        var addRow = getTable.insertRow();
+                        addRow.style.backgroundColor = "white";
+                        switch (pack[0].split("#_#")[a]) {
+                            case "A":
+                                var addC1 = addRow.insertCell(0).innerText = "货物";
+                                break;
+                            case "B":
+                                var addC1 = addRow.insertCell(0).innerText = "工程";
+                                break;
+                            case "C":
+                                var addC1 = addRow.insertCell(0).innerText = "服务";
+                                break;
+                            default:
+                                var addC1 = addRow.insertCell(0).innerText = "";
+                                break;
+                        }
+                        var addC2 = addRow.insertCell(1).innerText = pack[1].split("#_#")[a];
+                        var addC3 = addRow.insertCell(2).innerText = pack[2].split("#_#")[a];
+                        var addC4 = addRow.insertCell(3).innerText = pack[3].split("#_#")[a];
+                        var addC5 = addRow.insertCell(4).innerText = pack[4].split("#_#")[a];
+                        var addC6 = addRow.insertCell(5).innerText = pack[5].split("#_#")[a];
+                        if (pack[6].split("#_#")[a] == undefined || pack[6].split("#_#")[a] == "null") {
+                            var addC7 = addRow.insertCell(6).innerText = "";
+                        } else {
+                            var addC7 = addRow.insertCell(6).innerText = pack[6].split("#_#")[a];
+                        }
+                        if (pack[7].split("#_#")[a] == undefined || pack[7].split("#_#")[a] == "null") {
+                            var addC8 = addRow.insertCell(7).innerText = "";
+                        } else {
+                            var addC8 = addRow.insertCell(7).innerText = pack[7].split("#_#")[a];
+                        }
+                        if (pack[8].split("#_#")[a] == undefined || pack[8].split("#_#")[a] == "null") {
+                            var addC9 = addRow.insertCell(8).innerText = "";
+                        } else {
+                            var addC9 = addRow.insertCell(8).innerText = pack[8].split("#_#")[a];
+                        }
+                        if (pack[9].split("#_#")[a] == undefined || pack[9].split("#_#")[a] == "null") {
+                            var addC10 = addRow.insertCell(9).innerText = "";
+                        } else {
+                            var addC10 = addRow.insertCell(9).innerText = pack[9].split("#_#")[a];
+                        }
+                        var addC11 = addRow.insertCell(10).innerText = pack[10].split("#_#")[a];
+                        if (pack[11].split("#_#")[a] == undefined || pack[11].split("#_#")[a] == "null") {
+                            var addC12 = addRow.insertCell(11).innerText = "";
+                        } else {
+                            var addC12 = addRow.insertCell(11).innerText = pack[11].split("#_#")[a];
+                        }
+                        var addC13 = addRow.insertCell(12).innerText = pack[12].split("#_#")[a];
+                    }
+                }
+                var SERVICEREQUIREMENTS = document.getElementById("SERVICEREQUIREMENTS").innerText;
+                if (SERVICEREQUIREMENTS != "") {
+                    document.getElementById("SERVICEREQUIREMENTS").innerHTML = "服务标准：" + "<span>" + SERVICEREQUIREMENTS + "</span><br />";
+                } else {
+                    document.getElementById("SERVICEREQUIREMENTS").innerHTML = "";
+                }
+                var SPECIFICATIONMODEL = document.getElementById("SPECIFICATIONMODEL").innerText;
+                if (SPECIFICATIONMODEL != "") {
+                    document.getElementById("SPECIFICATIONMODEL").innerHTML = "规格型号：" + "<span>" + SPECIFICATIONMODEL + "</span><br />";
+                } else {
+                    document.getElementById("SPECIFICATIONMODEL").innerHTML = "";
+                }
+            }
+            document.getElementById("AnncVersion").innerHTML="";
+            var spanList=document.getElementsByTagName("span");
+            for(var i=0;i<spanList.length;i++)
+            {
+                if(spanList[i].innerText.trim()=="null")
+                {
+                    spanList[i].innerText="";
+                }
+            }
+        }
+
+        $(function () {
+            $("#navi").find("a").eq(0).html("首页");
+        });
+    </script>
+</head>
+
+<body onload="content()">
+
+<!--header start-->
+
+<iframe src="./中标公告详细页面_files/index_651.html" frameborder="0" marginwidth="0" marginheight="0" width="100%" scrolling="no" onload="autoIframeHeight(this)" height="194"></iframe>
+<!--header end-->
+
+<div style="display:none">
+    <form id="hmoreform" method="post" action="http://www.ccgp-hebei.gov.cn/cd/cd_wc/cggg/zhbggAAAA/202110/t20211011_1485252.html#">
+        <!-- <input id="hcurcolumnid" name="curcolumnid" type="hidden" /> -->
+        <input name="citycode" type="hidden" value="130000000">
+        <input name="cityname" type="hidden" value="省本级">
+    </form>
+    <form id="changefirstform" method="post" action="http://www.ccgp-hebei.gov.cn/cd/cd_wc/cggg/zhbggAAAA/202110/t20211011_1485252.html#">
+        <input id="citycode" name="citycode" type="hidden" value="130000000">
+        <input id="cityname" name="cityname" type="hidden" value="省本级">
+    </form>
+</div>
+
+<!--主体 start-->
+<table width="1022" border="0" align="center" cellpadding="0" cellspacing="0">
+    <tbody><tr>
+        <td height="197" align="left" valign="top" bgcolor="#FFFFFF">
+            <table width="1002" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tbody><tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="1002" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#E4E4E4">
+                            <tbody><tr>
+                                <td height="32" bgcolor="#EAEAEA">
+                                    <table width="98%" border="0" align="right" cellpadding="0" cellspacing="0">
+                                        <tbody><tr>
+                                            <td align="left">
+                                                <!--导航栏 start-->
+                                                <span class="txt1" id="navi">
+                                                        您当前位置：
+                                                    </span>
+                                                <a href="http://www.ccgp-hebei.gov.cn/cd/" title="承德市" class="a3">承德市</a>&gt;<a href="http://www.ccgp-hebei.gov.cn/cd/cd_wc/" title="围场县" class="a3">围场县</a>&gt;<a href="http://www.ccgp-hebei.gov.cn/cd/cd_wc/cggg/" title="采购公告" class="a3">采购公告</a>&gt;中标公告
+                                                    <!--导航栏 end-->
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <span id="AnncVersion"></span>
+                        <table width="930" border="0" align="center" cellpadding="0" cellspacing="0" id="OLD_VERSION"></table>
+                        <table width="930" border="0" align="center" cellpadding="0" cellspacing="0" id="2020_VERSION">
+                            <tbody><tr>
+                                <td align="center">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="center"><span class="txt2">2021年村级信息资源共享支中心电脑采购项目中标公告</span></td>
+                            </tr>
+                            <tr>
+                                <td height="1" style="background-image:url(../../../../../img/46.jpg)">
+                                    <div align="center"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="10">
+                                    <div align="center"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" class="txt7">
+                                    发布时间：
+                                    <span>2021-10-11</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <!--详细 start-->
+                                    <span class="txt7">
+                                        <span class="title">一、项目编号：</span><br>
+                                        <span>ZC130800202101632</span><br>
+                                        <span class="title">二、项目名称：</span><br>
+                                        <span>村级信息资源共享支中心电脑项目</span><br>
+                                        <span class="title">三、中标（成交）信息</span><br>
+                                        <div class="wenben" id="fcontent" style="width: 930px; word-break: normal; overflow: auto; text-overflow: ellipsis; margin-left: 30px; margin-right: 30px; padding: 0px;">
+                                            <table width="800" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#01000" id="SupplierInfos">
+                                                <tbody>
+                                                <tr>
+                                                    <th width="70" bgcolor="#FFFFFF">供应商名称</th>
+                                                    <th width="90" bgcolor="#FFFFFF">供应商地址</th>
+                                                    <th width="150" bgcolor="#FFFFFF">供应商组织机构代码</th>
+                                                </tr>
+                                                <tr style="background-color: white;"><td>承德发金商贸有限公司</td><td>河北省承德市围场满族蒙古族自治县围场镇河东村6组</td><td>91130828MA0F2U281M</td></tr><tr style="background-color: white;"><td>河北泰鸿体育设施有限公司</td><td>定州经济开发区大奇连工业园龙泉路</td><td>91130682MA091YFW0B</td></tr></tbody>
+                                            </table>
+                                        </div>
+                                        <span class="title">四、主要标的信息</span><br>
+                                        <div class="wenben" id="Goods" style="width: 930px; word-break: normal; overflow: auto; text-overflow: ellipsis; margin-left: 30px; margin-right: 30px; padding: 0px;">
+                                            <table width="1400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="white" id="GoodsTitle">
+                                                <tbody>
+                                                <tr>
+                                                    <th>货物</th>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <table width="1400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#01000" id="GoodsSupplierInfo">
+                                                <tbody>
+                                                <tr>
+                                                    <th width="150" bgcolor="#FFFFFF">供应商名称</th>
+                                                    <th width="150" bgcolor="#FFFFFF">货物名称</th>
+                                                    <th width="150" bgcolor="#FFFFFF">货物品牌</th>
+                                                    <th width="150" bgcolor="#FFFFFF">规格型号</th>
+                                                    <th width="150" bgcolor="#FFFFFF">数量</th>
+                                                    <th width="150" bgcolor="#FFFFFF">单价</th>
+                                                    <th width="150" bgcolor="#FFFFFF">中标金额</th>
+                                                    <th width="150" bgcolor="#FFFFFF">下浮率</th>
+                                                    <th width="150" bgcolor="#FFFFFF">费率</th>
+                                                    <th width="150" bgcolor="#FFFFFF">优惠率</th>
+                                                    <th width="150" bgcolor="#FFFFFF">优惠产品说明</th>
+                                                    <th width="150" bgcolor="#FFFFFF">优惠价</th>
+                                                </tr>
+                                                <tr style="background-color: white;"><td>承德发金商贸有限公司</td><td>计算机</td><td>紫光</td><td>紫光 Unis526T</td><td>156</td><td>4780.00</td><td>745680</td><td></td><td></td><td> </td><td></td><td></td></tr><tr style="background-color: white;"><td>河北泰鸿体育设施有限公司</td><td>计算机</td><td>戴尔</td><td>戴尔</td><td>156</td><td>4768.00</td><td>743808</td><td></td><td></td><td> </td><td></td><td></td></tr></tbody>
+                                            </table>
+                                        </div>
+                                        <div class="wenben" id="Engineering" style="width: 930px; word-break: normal; overflow: auto; text-overflow: ellipsis; margin-left: 30px; margin-right: 30px; padding: 0px;"></div>
+                                        <div class="wenben" id="Service" style="width: 930px; word-break: normal; overflow: auto; text-overflow: ellipsis; margin-left: 30px; margin-right: 30px; padding: 0px;"></div>
+                                        <span class="title">五、评审专家（单一来源采购人员）名单：</span><br>
+                                        <span>王东煜  何宗海  刘溪丹  王晓春  叶晓宇</span><br>
+                                        <span class="title">六、代理服务收费标准及金额</span><br>
+                                        本项目代理费总金额：<span>0</span><br>
+                                        本项目代理费收费标准:<span>无</span><br>
+                                        <span class="title">七、公告期限</span><br>
+                                        自本公告发布之日起1个工作日。<br>
+                                        <span class="title">八、其他补充事宜</span><br>
+                                        <span></span><br>
+                                        <span class="title">九、凡对本次公告内容提出询问，请按以下方式联系。</span><br>
+                                        1.采购人信息
+                                        名称：
+                                        <span>围场满族蒙古族自治县旅游和文化广电局本级</span><br>
+                                        地址 ：
+                                        <span>围场县围场镇</span><br>
+                                        联系方式：
+                                        <span>叶晓宇
+                                        0314-7566207</span><br>
+                                        2.采购代理机构信息<br>
+                                        名称 ：
+                                        <span>围场县政府采购中心</span><br>
+                                        地址 ：
+                                        <span>围场满族蒙古族自治县公共资源交易中心三楼政府采购中心313室<br></span>
+                                        联系方式 ：
+                                        <span>王岭  黄志刚
+                                        0314-7883999<br></span>
+                                        3.项目联系方式<br>
+                                        项目联系人：<span>
+                                            叶晓宇</span><br>
+                                        电话：<span>
+                                            0314-7566207</span><br>
+                                        <span class="title">十、附件</span><br>
+                                        <span id="fujian_2020"><a id="files" href="http://www.ccgp-hebei.gov.cn/BidWinAnncFiles/4b211afc-3a82-4fce-8ffb-11126a95def1.docx" class="blue" download="">2021年村级信息资源共享支中心电脑采购项目</a><br><a id="files" href="http://www.ccgp-hebei.gov.cn/BidWinAnncFiles/undefined.undefined" class="blue" download=""></a><br></span><br>
+                                    </span>
+                                    <!--详细 end-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <form name="form1" id="form1" method="post" action="http://www.ccgp-hebei.gov.cn/cd/cd_wc/cggg/zhbggAAAA/202110/t20211011_1485252.html">
+                                        <input type="button" value="关闭窗口" onclick="closeWindow()" class="guanbi">
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>&nbsp;</p>
+
+                    </td>
+                </tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody></table>
+<!--主体 end-->
+
+<!--footer start-->
+<style type="text/css">
+        #zfdb img {
+            border: 0 none;
+            height: auto;
+            max-width: 100%;
+            vertical-align: middle;
+        }
+    </style>
+
+    <div style="background-color:#2E83C3">
+        <table width="1022" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody><tr>
+                <td height="100" bgcolor="#2E83C3">
+                    <table width="1002" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tbody><tr>
+
+                            <td height="100" valign="top">
+                                <table width="1002" border="0" cellpadding="0" cellspacing="0">
+                                    <tbody><tr>
+                                        <td height="24">
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                    <!-- <tr>
+                                        <td height="42" align="center">
+                                            <a class="a7" onclick="changefirstHead()">首页</a>
+                                            <a class="a7" onclick="moreColumnHead('xinwenzhongxin-caigouxinwen','getXwzxList_1')"> |新闻中心</a>
+                                            <a class="a7" onclick="moreColumnHead('','getBidingList_1')"> | 采购公告</a>
+                                            <a class="a7" onclick="moreColumnHead('caigouxinxi','getCgxxList_1')"> | 采购信息</a>
+                                            <a class="a7" onclick="moreColumnHead('zhongyaotongzhi','getZytzList_1')">| 重要通知</a>
+                                            <a class="a7" onclick="moreColumnHead('zhengcefagui','getZcfgList_1')">| 政策法规</a>
+                                            <a class="a7" onclick="moreColumnHead('lilunshijian','getLlsjList_1')">| 理论实践</a>
+                                            <a class="a7" onclick="moreColumnHead('banshizhinan-caigouren','getBsznList_1')">| 办事指南</a>
+                                            <a class="a7" onclick="moreColumnHead('gonggaotongbao-chengxinjianshe','getGgtbList_1')">| 公告通报</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr> -->
+                                    <tr>
+                                         <td align="center" class="txt5">
+                                            主办单位:河北省财政厅 | Email:hebzfcg@sina.com | 地址:中华南大街48号 | 邮编:050051
+                                            <br>
+                                            技术支持:河北省财政厅信息中心 | 技术支持电话：（0311）66651000 &nbsp;&nbsp;<a href="http://www.ccgp-hebei.gov.cn/province/map/201805/t20180523_847997.html">联系方式</a>
+                                            <br>
+                                            <a href="http://beian.miit.gov.cn/" target="_blank" style="color:white;font-weight:normal;">冀ICP备13016076号-2</a>  &nbsp;&nbsp;  网站标识码: 1300000065  &nbsp; <a href="http://www.ccgp-hebei.gov.cn/province/map/" class="txt5">网站地图</a>
+<div style="width:300px;margin:0 auto;text-align: center;">
+<img src="./中标公告详细页面_files/beiantubiao.png" style="float: none;"> 
+冀公网安备 <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=13010402001602" target="_blank" style="color:white;font-weight:normal;">13010402001602</a>
+		 	</div>
+                                            <div id="zfdb">
+                                            <script id="_jiucuo_" sitecode="1300000065" src="./中标公告详细页面_files/jiucuo.js.下载"></script><span id="_span_jiucuo"><img onclick="Link(&#39;1300000065&#39;)" style="margin:0;border:0;cursor: pointer;" src="./中标公告详细页面_files/jiucuo.png"></span>
+                                            <script type="text/javascript">document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript src='http://dcs.conac.cn/js/05/000/0000/60849783/CA050000000608497830001.js' type='text/javascript'%3E%3C/script%3E"));</script><span id="_ideConac"><a href="https://bszs.conac.cn/sitename?method=show&amp;id=57F5E9CA841A5ACDE053022819ACEAD1" target="_blank"><img id="imgConac" vspace="0" hspace="0" border="0" src="./中标公告详细页面_files/blue.png" data-bd-imgshare-binded="1"></a></span><script src="http://dcs.conac.cn/js/05/000/0000/60849783/CA050000000608497830001.js" type="text/javascript"></script><span id="_ideConac"></span></div>
+                                        </td>
+                                    </tr>
+                                </tbody></table>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+        </tbody></table>
+    </div>
+<!--footer end-->
+
+
+</body></html>
